@@ -1,0 +1,30 @@
+<html>
+	<body>
+	<h1> Secret Santa </h1>
+	<p>Click the button to make a BUTTON element.</p>
+
+<button onclick="myFunction()">+</button>
+
+<form id="NameForm">
+<input type="text" name="Mame"><br>
+<input type="submit" value="Submit">
+</form>
+
+
+<script>
+	var c = 0;
+function myFunction() {
+	c++;
+    var nform = document.getElementById("NameForm");
+	var t = document.createElement("Input");
+	t.setAttribute("type","text");
+    t.setAttribute("name","Mame" + c);
+    nform.appendChild(t);
+    document.body.appendChild(nform);
+}
+</script>
+
+	
+	
+	</body>
+</html>
