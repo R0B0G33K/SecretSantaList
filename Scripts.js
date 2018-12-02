@@ -163,7 +163,7 @@ function endLoad(){
 		divv.appendChild(texxxt);
 		divvv.appendChild(p);
 		divvvv.appendChild(brr);
-		divv.appedChild(divvv);
+		divv.appendChild(divvv);
 		divv.appendChild(divvvv);
 		endg.appendChild(divv);
 		endg.appendChild(brr);
