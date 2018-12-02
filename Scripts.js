@@ -156,6 +156,7 @@ function endLoad(){
 		var divvvv = document.createElement("div")
 		divvvv.setAttribute("class","ok");
 		var p = document.createElement("p");
+		var per = document.createElement("p");
 		var brr = document.createElement("br");
 		var brrr = document.createElement("br");
 		var brrrr = document.createElement("br");
@@ -163,9 +164,10 @@ function endLoad(){
 		var texxxt = document.createTextNode(Array[i]);
 		var texxxxt = document.createTextNode("Reveal");
 		p.appendChild(texxt);
+		per.appendChild(texxxxt);
 		divv.appendChild(texxxt);
 		divvv.appendChild(p);
-		divvvv.appendChild(texxxxt);
+		divvvv.appendChild(per);
 		divv.appendChild(divvv);
 		divv.appendChild(divvvv);
 		endg.appendChild(divv);
