@@ -163,10 +163,10 @@ function endLoad(){
 		divv.appendChild(texxxt);
 		divvv.appendChild(p);
 		divvvv.appendChild(brr);
-		divv.appendChild(divvv);
+		divv.appedChild(divvv);
 		divv.appendChild(divvvv);
 		endg.appendChild(divv);
-		endg.appendchild(brr);
+		endg.appendChild(brr);
 	}
 	
 }
