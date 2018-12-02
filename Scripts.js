@@ -54,7 +54,6 @@ function relationLoad(){
 	var elm;
 	var check;
 	var par;
-	var b;
 	for (i = 0; i <= Array.length-1; i++){
 		dot = document.createElement("li");
 		elm = document.createTextNode(Array[i]+": ");
@@ -68,11 +67,9 @@ function relationLoad(){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
 			check.setAttribute("id", Array[i]+chunkAf[p]);
-			checkname = document.createTextNode(chunkAf[p]);
-			b = document.createElement("Br");
+			checkname = document.createTextNode(" "+chunkAf[p]+".");
 			par.appendChild(checkname);
 			par.appendChild(check);
-			par.appendChild(b);
 		}
 		}
 		else if (i == Array.length-1){
@@ -80,11 +77,9 @@ function relationLoad(){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
 			check.setAttribute("id", Array[i]+chunkBf[p]);
-			checkname = document.createTextNode(chunkBf[p]);
-			b = document.createElement("Br");
+			checkname = document.createTextNode(" "+chunkBf[p]+".");
 			par.appendChild(checkname);
 			par.appendChild(check);
-			par.appendChild(b);
 		}
 		}
 		else{	
@@ -92,21 +87,17 @@ function relationLoad(){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
 			check.setAttribute("id", Array[i]+chunkAf[p]);
-			checkname = document.createTextNode(chunkAf[p]);
-			b = document.createElement("Br");
+			checkname = document.createTextNode(" "+chunkAf[p]+".");
 			par.appendChild(checkname);
 			par.appendChild(check);
-			par.appendChild(b);
 		}
 		for  (p = 0; p < chunkBf.length; p++){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
 			check.setAttribute("id", Array[i]+chunkBf[p]);
-			checkname = document.createTextNode(chunkBf[p]);
-			b = document.createElement("Br");
+			checkname = document.createTextNode(" "+chunkBf[p]+".");
 			par.appendChild(checkname);
 			par.appendChild(check);
-			par.appendChild(b);
 		}
 		}
 		list.appendChild(dot);
@@ -119,7 +110,6 @@ function relationLoad(){
 function randomize(){
 	Array = JSON.parse(localStorage.getItem("data"));
     var max= Array.length;
-	var pairFinals = [];
 	var constraints = [];
 	
 
@@ -129,28 +119,40 @@ function randomize(){
 		var randomNum = Math.floor(Math.random() * (max)); 	
 		var pairEval = Array[i]+ Array[randomNum];
 		if (Array[i] == Array[randomNum]){
-			pairFinals = [];
+			Pairs = [];
 			constraints = [];
 			continue start;
 		}
 		else if (document.getElementById(pairEval).checked == true){
-			pairFinals = [];
+			Pairs = [];
 			constraints = [];
 			continue start;
 		}
 		else if (constraints.indexOf(Array[randomNum]) !== -1){
-			pairFinals = [];
+			Pairs = [];
 			constraints = [];
 			continue start;
 		}
 		else{
 		constraints.push(Array[randomNum]);
-		pairFinals.push(Array[i]+ " has " + Array[randomNum]);
+		Pairs.push(Array[i]+ " has " + Array[randomNum]);
 		}
 	}
 	break
 	}
-	Pairs.push(pairFinals);
-	document.write(Pairs);
+	window.localStorage.setItem("data2", JSON.stringify(Pairs));
+	document.location.href = "End.html";
+}
+
+function endLoad(){
+	Pairs = JSON.parse(localStorage.getItem("data2"));
+	var endg = document.getElementById("endgame");
+	for (i = 0; i <= 2; i++){
+		var p = document.createElement("p");
+		var texxt = document.createTextNode(Pairs[i]);
+		p.appendChild(texxt);
+		endg.appendChild(p);
+	}
+	
 }
 
