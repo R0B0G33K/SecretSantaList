@@ -1,6 +1,8 @@
 
 	var nameC = 0;
 	var Array = [];
+	var Pairs = [];
+	
 function addName() {
 	nameC++;
     var nform = document.getElementById("NameForm");
@@ -38,7 +40,7 @@ function next(){
 	 }
 	 }
 	 if (jeff == 0){
-	 window.localStorage.setItem("Array", Array);
+	 window.localStorage.setItem("data", JSON.stringify(Array));
 	 document.location.href = "Relations.html";
 	 }
 }
@@ -46,58 +48,109 @@ function next(){
 /* Relations */
 
 function relationLoad(){
-	var kevin = localStorage.getItem("Array");
+	Array = JSON.parse(localStorage.getItem("data"));
     var list = document.getElementById("List");
 	var dot;
 	var elm;
 	var check;
 	var par;
-	for (i = 0; i <= kevin.length; i= i+2){
+	var b;
+	for (i = 0; i <= Array.length-1; i++){
 		dot = document.createElement("li");
-		elm = document.createTextNode(kevin[i]+": ");
+		elm = document.createTextNode(Array[i]+": ");
 		dot.appendChild(elm);
 		par = document.createElement("p");
 		dot.appendChild(par);
-		var	chunkAf = kevin.slice(i+2,(kevin.length)+1);
-		var	chunkBf = kevin.slice(0,i-1);
+		var	chunkAf = Array.slice(i+1,Array.length);
+		var	chunkBf = Array.slice(0,i);
 		if(i == 0){
-			for  (p = 0; p <= chunkAf.length; p= p+2){
+			for  (p = 0; p < chunkAf.length; p++){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
-			check.setAttribute("id", i+chunkAf[p]);
+			check.setAttribute("id", Array[i]+chunkAf[p]);
 			checkname = document.createTextNode(chunkAf[p]);
+			b = document.createElement("Br");
 			par.appendChild(checkname);
 			par.appendChild(check);
+			par.appendChild(b);
 		}
 		}
-		else if (i == (kevin.length)-1){
-			for  (p = 0; p <= chunkBf.length; p= p+2){
+		else if (i == Array.length-1){
+			for  (p = 0; p < chunkBf.length; p++){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
-			check.setAttribute("id", i+chunkBf[p]);
+			check.setAttribute("id", Array[i]+chunkBf[p]);
 			checkname = document.createTextNode(chunkBf[p]);
+			b = document.createElement("Br");
 			par.appendChild(checkname);
 			par.appendChild(check);
+			par.appendChild(b);
 		}
 		}
 		else{	
-		for  (p = 0; p <= chunkAf.length; p= p+2){
+		for  (p = 0; p < chunkAf.length; p++){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
-			check.setAttribute("id", i+chunkAf[p]);
+			check.setAttribute("id", Array[i]+chunkAf[p]);
 			checkname = document.createTextNode(chunkAf[p]);
+			b = document.createElement("Br");
 			par.appendChild(checkname);
 			par.appendChild(check);
+			par.appendChild(b);
 		}
-		for  (p = 0; p <= chunkBf.length; p= p+2){
+		for  (p = 0; p < chunkBf.length; p++){
 			check = document.createElement("INPUT");
 			check.setAttribute("type", "checkbox");
-			check.setAttribute("id", i+chunkBf[p]);
+			check.setAttribute("id", Array[i]+chunkBf[p]);
 			checkname = document.createTextNode(chunkBf[p]);
+			b = document.createElement("Br");
 			par.appendChild(checkname);
 			par.appendChild(check);
+			par.appendChild(b);
 		}
 		}
 		list.appendChild(dot);
 	}
 }
+
+
+/* Radomize */
+
+function randomize(){
+	Array = JSON.parse(localStorage.getItem("data"));
+    var max= Array.length;
+	var pairFinals = [];
+	var constraints = [];
+	
+
+	start:
+	while (true){
+	for (i = 0; i <= Array.length-1; i++){
+		var randomNum = Math.floor(Math.random() * (max)); 	
+		var pairEval = Array[i]+ Array[randomNum];
+		if (Array[i] == Array[randomNum]){
+			pairFinals = [];
+			constraints = [];
+			continue start;
+		}
+		else if (document.getElementById(pairEval).checked == true){
+			pairFinals = [];
+			constraints = [];
+			continue start;
+		}
+		else if (constraints.indexOf(Array[randomNum]) !== -1){
+			pairFinals = [];
+			constraints = [];
+			continue start;
+		}
+		else{
+		constraints.push(Array[randomNum]);
+		pairFinals.push(Array[i]+ " has " + Array[randomNum]);
+		}
+	}
+	break
+	}
+	Pairs.push(pairFinals);
+	document.write(Pairs);
+}
+
