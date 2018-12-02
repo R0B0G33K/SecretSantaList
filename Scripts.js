@@ -157,6 +157,8 @@ function endLoad(){
 		divvvv.setAttribute("class","ok");
 		var p = document.createElement("p");
 		var brr = document.createElement("br");
+		var brrr = document.createElement("br");
+		var brrrr = document.createElement("br");
 		var texxt = document.createTextNode(Pairs[i]);
 		var texxxt = document.createTextNode(Array[i]);
 		p.appendChild(texxt);
@@ -167,6 +169,8 @@ function endLoad(){
 		divv.appendChild(divvvv);
 		endg.appendChild(divv);
 		endg.appendChild(brr);
+		endg.appendChild(brrr);
+		endg.appendChild(brrrr);
 	}
 	
 }
