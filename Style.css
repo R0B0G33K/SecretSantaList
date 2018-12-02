@@ -52,11 +52,24 @@ button {
 	border-radius: 10px;
 }
 
+.showme{ 
+display: none;
+}
+.showhim:hover .showme{
+display : block;
+}
+.showhim:hover .ok{
+display : none;
+}
 
 .main{
 	text-align: center;
 }
 
+.textx{
+	text-shadow: white 0.3px 0.5px;
+	font-size: 2.5em;
+}
 
 #instructions{
 	text-align:center;

@@ -145,13 +145,27 @@ function randomize(){
 }
 
 function endLoad(){
+	Array = JSON.parse(localStorage.getItem("data"));
 	Pairs = JSON.parse(localStorage.getItem("data2"));
 	var endg = document.getElementById("endgame");
-	for (i = 0; i <= 2; i++){
+	for (i = 0; i <= Pairs.length-1; i++){
+		var divv = document.createElement("div");
+		divv.setAttribute("class","showhim");
+		var divvv = document.createElement("div");
+		divvv.setAttribute("class","showme");
+		var divvvv = document.createElement("div")
+		divvvv.setAttribute("class","ok");
 		var p = document.createElement("p");
+		var brr = document.createElement("br");
 		var texxt = document.createTextNode(Pairs[i]);
+		var texxxt = document.createTextNode(Array[i]);
 		p.appendChild(texxt);
-		endg.appendChild(p);
+		divv.appendChild(texxxt);
+		divvv.appendChild(p);
+		divvvv.appendChild(brr);
+		divv.appendChild(divvv);
+		divv.appendChild(divvvv);
+		endg.appendChild(divv);
 	}
 	
 }
