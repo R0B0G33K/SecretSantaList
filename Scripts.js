@@ -166,6 +166,7 @@ function endLoad(){
 		divv.appendChild(divvv);
 		divv.appendChild(divvvv);
 		endg.appendChild(divv);
+		endg.appendchild(brr);
 	}
 	
 }
