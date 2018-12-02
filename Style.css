@@ -59,7 +59,7 @@ display: none;
 display : block;
 }
 .showhim:hover .ok{
-display : block;
+display : none;
 }
 
 .main{
