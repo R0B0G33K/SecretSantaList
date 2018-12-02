@@ -55,11 +55,11 @@ button {
 .showme{ 
 display: none;
 }
-.showhim:focus .showme{
+.showhim:hover .showme{
 display : block;
 }
-.showhim:focus .ok{
-display : none;
+.showhim:hover .ok{
+display : block;
 }
 
 .main{
