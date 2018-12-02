@@ -161,10 +161,11 @@ function endLoad(){
 		var brrrr = document.createElement("br");
 		var texxt = document.createTextNode(Pairs[i]);
 		var texxxt = document.createTextNode(Array[i]);
+		var texxxxt = document.createTextNode("Reveal");
 		p.appendChild(texxt);
 		divv.appendChild(texxxt);
 		divvv.appendChild(p);
-		divvvv.appendChild(brr);
+		divvvv.appendChild(texxxxt);
 		divv.appendChild(divvv);
 		divv.appendChild(divvvv);
 		endg.appendChild(divv);
