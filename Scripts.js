@@ -159,7 +159,6 @@ function endLoad(){
 		var per = document.createElement("p");
 		var brr = document.createElement("br");
 		var brrr = document.createElement("br");
-		var brrrr = document.createElement("br");
 		var texxt = document.createTextNode(Pairs[i]);
 		var texxxt = document.createTextNode(Array[i]);
 		var texxxxt = document.createTextNode("Reveal");
@@ -173,7 +172,6 @@ function endLoad(){
 		endg.appendChild(divv);
 		endg.appendChild(brr);
 		endg.appendChild(brrr);
-		endg.appendChild(brrrr);
 	}
 	
 }
