@@ -151,6 +151,7 @@ function endLoad(){
 	for (i = 0; i <= Pairs.length-1; i++){
 		var divv = document.createElement("div");
 		divv.setAttribute("class","showhim");
+		divv.setAttribute("onclick","void(0)");
 		var divvv = document.createElement("div");
 		divvv.setAttribute("class","showme");
 		var divvvv = document.createElement("div")
